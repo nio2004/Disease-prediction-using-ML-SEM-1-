@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% comment %} <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicter Application</title>
+</head>
+<body>
+    <h1>Cardio Vascular Diesease Prediction</h1>
+
+    <form action="{% url 'cardio_result' %}" >
+        {% csrf_token %}
+        AGE : <input type="floatformat" name="Age" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        GENDER : <input type="floatformat" name="Gender" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        HEIGHT : <input type="floatformat" name="Height" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        WEIGHT : <input type="floatformat" name="Weight" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        SYSTOLIC BLOOD PRESSURE : <input type="floatformat" name="Systolicbp" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        DIASTOLIC BLOOD PRESSURE : <input type="floatformat" name="Diastolicbp" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        CHOLESTROL : <input type="floatformat" name="Cholesterol" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        GLUCOSE : <input type="floatformat" name="Glucose" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        SMOKING : <input type="floatformat" name="Smoking" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        ALCOHOL : <input type="floatformat" name="Alcohol_intake" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        PHYSICAL ACTIVITY : <input type="floatformat" name="Physical_activity" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required><br>
+        <input type="submit">
+    </form>
+</body>
+</html> {% endcomment %}
+
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="with=device-width, initial-scale=1.0">
+<title>Cardio Vascular</title>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" >
+<style>
+    html{
+    zoom:100%;
+}
+
+</style>
+</head>
+<body>
+<section class="header">
+<nav>
+<a href="{% url 'home' %}"><img src="{% static 'images/logo1.png' %}"></a>
+<div class="nav-links" id="navLinks">
+<i class="fa fa-times" onclick="hidemenu()"></i>
+<ul>
+<li><a href="{% url 'home' %}">HOME</a><li>
+<li><a href="{% url 'home' %}#ab">ABOUT</a><li>
+<li><a href="{% url 'home' %}#ds">DISEASE</a><li>
+<li><a href="{% url 'ieee' %}">IEEE PAPER</a><li>
+<li><a href="#contactus">CONTACT</a><li>
+</ul>
+<i class="fa fa-bars" onclick="showmenu()"></i>
+</nav>
+<section class="form1" >
+    <h1>Heart Disease Prediction</h1>
+    <form class="form" action="{% url 'cardio_result' %}">
+    <fieldset><legend>Heart Disease</legend>
+        {% csrf_token %}
+        <label for="field1"><span>Age (years) <span class="required">*</span></span><input type="floatformat" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required class="input-field" name="Age" value="" /></label><br>
+        <label for="field1"><span>Height (cm) <span class="required">*</span></span><input type="floatformat" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required class="input-field" name="Gender" value="" /></label><br>
+        <label for="field1"><span>Weight (kg) <span class="required">*</span></span><input type="floatformat" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required class="input-field" name="Height" value="" /></label><br>
+        <label for="field1"><span>Gender (0:male, 1:female) <span class="required">*</span></span><input type="floatformat" pattern="[0-1]" title="Please Enter Number 1 or 2" required class="input-field" name="Weight" value="" /></label><br>
+        <label for="field1"><span>Systolic blood pressure <span class="required">*</span></span><input type="floatformat" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required class="input-field" name="Systolicbp" value="" /></label><br>
+        <label for="field1"><span>Diastolic blood pressure <span class="required">*</span></span><input type="floatformat" pattern="[0-9]+(\.[0-9]{1,5})?%?" title="Please Enter Only Numbers" required class="input-field" name="Diastolicbp" value="" /></label><br>
+        <label for="field1"><span>Cholesterol 1:normal, 2:above normal, 3:well above normal<span class="required">*</span></span><input type="floatformat" pattern="[1-3]" title="Please Enter Number 1 or 2 or 3" required class="input-field" name="Cholesterol" value="" /></label><br><br>
+        <label for="field1"><span>Glucose 1:normal, 2:above normal, 3:well above normal<span class="required">*</span></span><input type="floatformat" pattern="[1-3]" title="Please Enter Number 1 or 2 or 3" required class="input-field" name="Glucose" value="" /></label><br><br>
+        <label for="field1"><span>Smoking (0:No, 1:Yes) <span class="required">*</span></span><input type="floatformat" pattern="[0-1]" title="Please Enter Number 0 or 1" required class="input-field" name="Smoking" value="" /></label><br>
+        <label for="field1"><span>Alcohol intake (0:No, 1:Yes) <span class="required">*</span></span><input type="floatformat" pattern="[0-1]" title="Please Enter Number 0 or 1" required class="input-field" name="Alcohol_intake" value="" /></label><br>
+        <label for="field1"><span>Physical activity (0:No, 1:Yes) <span class="required">*</span></span><input type="floatformat" pattern="[0-1]" title="Please Enter Number 0 or 1" required class="input-field" name="Physical_activity" value="" /></label><br>
+        
+        <input type="submit"><br>
+    </fieldset>
+    </form>
+</section>
+</section>
