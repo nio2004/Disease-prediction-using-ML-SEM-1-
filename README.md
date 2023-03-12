@@ -10,6 +10,7 @@ Cardiovascular Model Dataset - https://www.kaggle.com/datasets/sulianova/cardiov
 In the above mentioned files, .ipynb files was written with the help of Google Colaboratory
 
 We have used Django Framework for creating the website.
+Frontend of the website was done by html and css only.
 
 Screenshots of the website:
 <img width="1115" alt="image" src="https://user-images.githubusercontent.com/110836015/224560424-b1a3af3d-f1a7-4cee-bda3-ccad293029ff.png">
